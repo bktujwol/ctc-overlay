@@ -1,0 +1,217 @@
+.ctcOverlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    
+    width: 100%;
+    height:0;
+    position: fixed; /* Stay in place */
+    z-index: 25000!important; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.8); /* Black fallback color */
+    max-height:100%;
+      -webkit-transition: width 2s,height 3s ; /* Safari */
+       transition:  width 2s,height3s;
+       transition: 0.5s ease;
+      -webkit-transition: 0.5s ease;
+      -moz-transition: 0.5s ease;
+     overflow:hidden;
+}
+
+/* Position the content inside the overlay */
+.ctcOverlayContent {
+ 
+}
+
+/* The navigation links inside the overlay */
+
+.ctcOverlayClosebtn{
+float:right;
+font-weight:bold;
+ z-index: 25000!important; /* Sit on top */
+font-size:40px;
+ -webkit-transition: width 0.2s; /* Safari */
+     transition: width 0.2;
+     transition: 0.2s ease;
+     -webkit-transition: 0.2s ease;
+     -moz-transition: 0.2s ease;
+ 
+}
+
+/* Position the close button (top right corner) */
+.ctcOverlay .ctcOverlayClosebtn::before {
+	content:"\00d7"; 
+    text-decoration: none;
+    transition: 0.3s; /* Transition effects on hover (color) */  
+    color:rgba(255,255,255,0.8);
+    
+}
+
+
+/* When you mouse over the navigation links, change their color */
+ .ctcOverlayClosebtn:hover{
+    -webkit-transition: width 0.2s; /* Safari */
+     transition: width 0.2;
+     transition: 0.2 ease;
+     -webkit-transition: 0.2s ease;
+     -moz-transition: 0.2s ease;
+         -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+     transform: scale(1.3);
+      font-weight:bolder;
+     color:rgba(255,255,255,1);
+     cursor:pointer;
+      color:rgba(255,255,255,1);
+  
+ }
+
+
+.ctcOverlay .ctcGalleryLeftNav::before{
+	content:"\2039";
+	color:rgba(255,255,255,0.8) !important;
+}
+
+.ctcOverlay .ctcGalleryRightNav::before{
+	
+	content:"\203A"; 
+	color:rgba(255,255,255,0.8) !important;
+}
+  .ctcGalleryLeftNav{
+			 float:left;
+			 -webkit-transition: width 1s; /* Safari */
+            transition: width 1s;
+            transition: 0.5s ease;
+           -webkit-transition: 0.5s ease;
+           -moz-transition: 0.5s ease;
+            display:inline-block!important;;
+            cursor:pointer;
+            font-size:120px;
+            margin-left:.5%;
+            z-index:25500;
+  
+  }
+  
+  
+  .ctcGalleryRightNav{
+		   float:right;
+		  -webkit-transition: width 1s; /* Safari */
+            transition: width 1s;
+            transition: 0.5s ease;
+           -webkit-transition: 0.5s ease;
+           -moz-transition: 0.5s ease;
+            display:inline-block!important;;
+            cursor:pointer;
+            font-size:120px;
+            margin-right:.5%;
+            z-index:25500;
+  }
+
+ 
+
+ 
+ .ctcGalleryLeftNav:hover,
+ .ctcGalleryRightNav:hover{
+    -webkit-transition: width 0.5s; /* Safari */
+     transition: width 0.5;
+     transition: 0.5s ease;
+     -webkit-transition: 0.5s ease;
+     -moz-transition: 0.5s ease;
+     color:white;
+      opacity:1;
+       display:inline-block;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+     transform: scale(1.2);
+      cursor:pointer;
+      color:rgba(255,255,255,1);
+ }
+
+
+ 
+ .ctcOverlayImageContainer{
+ 
+    margin-left:auto;
+    margin-right:auto;
+    display:inline-block;
+    position:absolute;
+    text-align: center; /* Centered text/links */
+    display:inline-block;
+    border-radius:0.5%;
+  
+  
+ }
+ 
+ .ctcOverlayImageContainer img{
+ margin-left:auto;
+ margin-right:auto;
+ display:block;
+ opacity:1; 
+ border-radius:2.5%;
+ position: relative; 
+ z-index: 25500!important; /* Sit on top */
+
+}
+
+
+ 
+div.ctcOverlayCountAndCurrentImage{
+
+position:absolute;	
+ margin-top:0px;
+  opacity:0;
+  color:white !important;
+  display:inline-block 1important;
+  float:left !important;
+  margin-bottom:-20px;
+   background-color:rgba(0,0,0,0.9);
+   border-radius:25%;
+   padding:3px;
+   max-width:50%;
+    border:2px solid white;
+   bottom:0px;
+   z-index:25200;
+   
+ }
+ .ctcOverlayCountAndCurrentImage span{
+ color:white;
+ opacity:1;
+
+}
+  .ctcOverlayCountAndCurrentImage span:nth-child(2){
+  width:10px;
+  }
+  
+  .ctcLoadedImgAltTitle{
+
+  border:2px solid white;
+   padding-left:5px;
+   padding-right:5px;
+   padding-bottom:2px;
+   border-radius:35%;
+   display:inline-block;
+   opacity:0;
+    background-color:rgba(0,0,0,0.9);
+    float:right;
+    position:absolute;
+    color:white;
+    right:0px;
+    bottom:0px;
+    z-index:25500;
+   
+  }
+  
+  .ctcOverlayImages{
+  display:none;
+  width:0px;
+  height:0px;
+ 
+  }
+  .ctcImageBeingDisplayed{
+   
+  }
+  
+
+
