@@ -48,7 +48,7 @@ font-size:40px;
 
 
 /* When you mouse over the navigation links, change their color */
- .ctcOverlayClosebtn:hover::before{
+ .ctcOverlayClosebtn:hover{
     -webkit-transition: width 0.2s; /* Safari */
      transition: width 0.2;
      transition: 0.2 ease;
