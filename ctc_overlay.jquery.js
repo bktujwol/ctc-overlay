@@ -1,4 +1,4 @@
-/***
+	/*
 	 * 
 	 * 
 	 * 
@@ -10,13 +10,7 @@
 	 * 
 	 * 
 	 */
-
-
-
-
-		
-		
-		
+	
 (function( $ ){
 
 		
@@ -40,6 +34,8 @@
 						overlayContainer +='<span id="ctcOverlayClosebtn" title="close" class="ctcOverlayClosebtn" ></span>';	
 						overlayContainer +=' </div>';			   
 						$('body').prepend(overlayContainer);
+						
+						
 
 			}	
 		
@@ -56,19 +52,23 @@
 	//function to resize font based on screen size
 		
 	function ctcResizeFontOnResize(screenWidth){
-		if(screenWidth<1280){
+		
 			 var optimizedFontSize = (screenWidth/1280)*80; 
-			 	
-			 	if($('#ctc-font-style').length>=1){
-			 	
-				 		$('#ctc-font-style').remove();
-				 		$('head').append('<style id=ctc-font-style>#ctcGalleryLeftNav::before,#ctcGalleryRightNav::before{font-size:'+Math.ceil(optimizedFontSize)+'px !important;} #ctcOverlayClosebtn::before{font-size:'+Math.ceil((optimizedFontSize/2))+'px !important}</style>');
-			 	
+			 	if(screenWidth<1280){
+					 	if($('#ctc-font-style').length>=1){
+					 	
+						 		$('#ctc-font-style').remove();
+						 		$('head').append('<style id=ctc-font-style> #ctcGalleryLeftNav::before,#ctcGalleryRightNav::before{font-size:'+Math.ceil(optimizedFontSize)+'px !important;} #ctcOverlayClosebtn::before {font-size:'+Math.ceil(optimizedFontSize/2)+'px !important;}</style>');
+						 		$('#ctcLoadedImgAltTitle,#ctcOverlayCountAndCurrentImage').css({'font-size':(optimizedFontSize/4)+'px'});
+					 	
+					 	}
+					 	else{
+					 		$('head').append('<style id=ctc-font-style> #ctcGalleryLeftNav::before,#ctcGalleryRightNav::before{font-size:'+optimizedFontSize+'px !important;} #ctcOverlayClosebtn::before{font-size:'+Math.ceil(optimizedFontSize/2)+'px !important;}</style>');
+					 		$('#ctcLoadedImgAltTitle,#ctcOverlayCountAndCurrentImage').css({'font-size':(optimizedFontSize/4)+'px'});
+					 	}
 			 	}
-			 	else{
-			 		$('head').append('<style id=ctc-font-style>.ctcGalleryLeftNav::before,.ctcGalleryRightNav::before{font-size:'+optimizedFontSize+'px !important;}</style>');
-			 	}
-		 }	
+		 
+			 	return  optimizedFontSize;
 		}	
 		
 	//function to return title and alt for image
@@ -99,6 +99,7 @@
 		if(jQuery("#ctcOverlay").height() != 0){
 			
 				 loadOverlayImages($('.ctcImageBeingDisplayed').attr('data-img-number'));
+				
 			}
 		return false;
 	});
@@ -159,19 +160,6 @@
 				$("*[data-ctc-active-gallery = 'active']").removeAttr('data-ctc-active-gallery');
 				$(this).attr('data-ctc-active-gallery','active');
 		}
-		else{
-			if($("#ctcOverlay").height() !== 0){
-				let overlayImageGallery ='';
-				let i=0;
-				$('img',this).each(function(){
-					$(this).attr('data-img-number',i);
-					overlayImageGallery += '<img  data-img-number="'+i+'" class="ctcOverlayImages"  title="'+$(this).attr('title')+'" id="ctc-image-overlay-'+i+'" alt="'+$(this).attr('alt')+'" src="'+$(this).attr('src')+'"/>';
-					i++;
-				});
-				$("#ctcOverlayImageContainer").prepend( overlayImageGallery);
-			}
-			
-		}
 
 	});
 
@@ -222,12 +210,11 @@
 				screenWidth =  windowWidth;
 				screenHeight = windowHeight;
 			 }
-			
-			 var optimizedFontSize = (screenWidth/1280)*80;    
+			 
 			//call function to style font based on screen size
-			 ctcResizeFontOnResize(screenWidth);
+			 var optimizedFontSize = ctcResizeFontOnResize(screenWidth);
 			 
-			 
+			
 			var totalImageCount = $('.ctcOverlayImages').length;
 			
 		
@@ -238,7 +225,6 @@
 							
 															var imageNumberToLoad = parseInt(currentImageNumber);
 															var prevImage = imageNumberToLoad-1;
-															
 															var nextImage = imageNumberToLoad+1;
 																
 															
@@ -385,7 +371,7 @@
 		   imageToDisplay.css({ 'width':optimizedImageWidth+'px','height':optimizedImageHeight+'px'});
 	           $("#ctcOverlay").animate({width:screenWidth,height:screenHeight,opacity:1},200,function(){	
 	        	var containerMarginTop = (screenHeight-optimizedImageHeight)/2;
-	        	var containerMarginLeft = ((screenWidth-optimizedImageWidth)/2)-30;
+	        	var containerMarginLeft = ((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize/2);
 
 				var navIconMargin = 	containerMarginTop+(optimizedImageHeight/2)-45;
 				var closeButton =  $('#ctcOverlayClosebtn');
@@ -402,7 +388,7 @@
 															  //hide all images before diplaying one
 															  $('.ctcOverlayImages').hide();
 															  
-															  closeButton.animate({'margin-right':(((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize))+'px'},300,function(){
+															  closeButton.animate({'margin-right':(((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize/1.3))+'px'},300,function(){
 																	$(this).animate({'margin-top':(containerMarginTop-20)+'px'},250,function(){});
 																	 
 																 });
@@ -438,7 +424,7 @@
 												  //hide all images before diplaying one
 												  $('.ctcOverlayImages').hide();
 												  
-												  closeButton.animate({'margin-right':(((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize))+'px'},300,function(){
+												  closeButton.animate({'margin-right':(((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize/1.3))+'px'},300,function(){
 														$(this).animate({'margin-top':(containerMarginTop-20)+'px'},250,function(){});
 														 
 													 });
@@ -478,7 +464,7 @@
 									
 									 $('#ctcOverlayImageContainer').animate({'margin-left':containerMarginLeft+'px','margin-top':containerMarginTop+'px'},10,function(){	
 										 
-										 closeButton.animate({'margin-right':(((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize))+'px'},300,function(){
+										 closeButton.animate({'margin-right':(((screenWidth-optimizedImageWidth)/2)-(optimizedFontSize/1.3))+'px'},300,function(){
 												$(this).animate({'margin-top':(containerMarginTop-20)+'px'},250,function(){});
 												 
 											 });

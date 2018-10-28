@@ -48,7 +48,7 @@ font-size:40px;
 
 
 /* When you mouse over the navigation links, change their color */
- .ctcOverlayClosebtn:hover{
+ .ctcOverlayClosebtn:hover::before{
     -webkit-transition: width 0.2s; /* Safari */
      transition: width 0.2;
      transition: 0.2 ease;
@@ -60,7 +60,7 @@ font-size:40px;
     -ms-transform: scale(1.3);
      transform: scale(1.3);
       font-weight:bolder;
-     color:rgba(255,255,255,1);
+    
      cursor:pointer;
       color:rgba(255,255,255,1);
   
@@ -151,7 +151,7 @@ font-size:40px;
  opacity:1; 
  border-radius:2.5%;
  position: relative; 
- z-index: 25500!important; /* Sit on top */
+ z-index: 25000!important; /* Sit on top */
 
 }
 
@@ -172,7 +172,7 @@ position:absolute;
    max-width:50%;
     border:2px solid white;
    bottom:0px;
-   z-index:25200;
+   z-index:26500;
    
  }
  .ctcOverlayCountAndCurrentImage span{
@@ -199,7 +199,7 @@ position:absolute;
     color:white;
     right:0px;
     bottom:0px;
-    z-index:25500;
+    z-index:26500;
    
   }
   
