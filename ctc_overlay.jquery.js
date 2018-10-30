@@ -12,13 +12,10 @@
 	 */
 	
 (function( $ ){
-
-		
 	$.fn.ctcOverlay = function (){
 		
 		//load overlay conatiner on window load
-		window.onload = function(){
-			
+		$(document).ready(function(){			
 				var overlayContainer = '';
 						
 						overlayContainer += '<div  id="ctcOverlay" class="ctcOverlay">'; 
@@ -37,7 +34,7 @@
 						
 						
 
-			}	
+			});	
 		
 		
 
@@ -96,7 +93,7 @@
 	$( window ).resize(function() {
 
 
-		if(jQuery("#ctcOverlay").height() != 0){
+		if($("#ctcOverlay").height() != 0){
 			
 				 loadOverlayImages($('.ctcImageBeingDisplayed').attr('data-img-number'));
 				
@@ -113,7 +110,7 @@
 					    300,
 					    function(){
 							 $('.ctcImageBeingDisplayed').hide();
-							  //if scroll bar exists hide it first
+							  //if scroll bar exists dsiplay
 							  $('body').css('overflow','auto');
 						});
 		});	
@@ -189,10 +186,9 @@
 			var screenHeight = window.screen.height;
 			var image = new Image();
 			    image.src =imageToDisplay.attr('src');
-	  
+
 	  image.addEventListener('load',function(){
 			 
-		  //if scroll bar exists hide it first
 		  $('body').css('overflow','hidden');
 		  
 			imageActualHeight = image.height;
@@ -510,9 +506,197 @@
 		}(jQuery));
 		
 
+/*
+ * 
+ * Section to deal with adding element to the overlay
+ * 
+ * 
+ * 
+ */
 
+(function( $ ){
+	$.ctcOverlayEl = function (param,jqAjax){
+		
+		 $('body').css('overflow','hidden');
+		 
+		
+		
+		let elHeight = param.elemHeight; 
+		let elWidth = param.elemWidth;
+		var elHtml;
+		var  ajaxMethod = 'GET';
+		var ajaxData ='';
+		
+		
+	//script to lod content on overlay based on user actions
+			
+	if(jqAjax !== undefined){
+							//make ajax call
+							$.ajax(jqAjax).done(function( response ) {
+											ctcLoadOverlayEl(response);
+							}).fail(function(){alert("Action could not be completed at this time."); $('body').css('overflow','auto');});
+	
+		}
+		else if(param.ajaxUrl !== undefined){
+			
+							//check of ajax method is set
+							if(param.ajaxMethod !== undefined){
+								 ajaxMethod = param.ajaxMethod;
+							}
+							
+							//check if ajaxData is set
+							if(param.ajaxData  !== undefined){
+								 ajaxData =  param.ajaxData;
+							}
+							
+							//make ajax call 
+							$.ajax({method:ajaxMethod,url:param.ajaxUrl,data:ajaxData})
+							  .done(function( response ) {
+								  ctcLoadOverlayEl(response);
+							  }).fail(function(){alert("Action could not be completed at this time."); $('body').css('overflow','auto');});
+		
+		}
+		else if(param.iframeUrl !==undefined){
+			
+			ctcLoadOverlayEl('<iframe height="'+elHeight+'" width="'+elWidth+'" src="'+param.iframeUrl+'" allowfullscreen>></iframe>');
+		}
+		else if(param.elemSelector !== undefined){
+			ctcLoadOverlayEl($(param.elemSelector).html());
+		}
+		
 
+	//script to run when clode butto is pressed	 
+	document.addEventListener('keydown', function(event) {
+				
+				if($("#ctcOverlayEl").height() !== 0){
+					if (event.code == 'Escape'){ 
+						$('#ctcOverlayElClosebtn').click();
+					}
+				}
+				  
+	 });
+			
+	$(document).on('click','#ctcOverlayElClosebtn',function(){
+		$('#overlayElContainer').animate({opacity:0},200,function(){
+			
+			$("#ctcOverlayEl").animate({height:0,opacity:0},250,function(){	
+				$(this).remove();
+				 $('body').css('overflow','auto');
+			});
+		});
+		
+	  
+	});
+	
+	
+	//script to run on window resize 
+	 $( window ).resize(function() {
 
+		 
+		 
+			if($("#ctcOverlayEl").height() != 0){
+				
+				//script to deal with loading content to the overlay
+				var screenWidth = window.screen.width;
+				var screenHeight = window.screen.height;
+				
+				
+				//special case when window is not in full screen
+				 var windowWidth = window.innerWidth;
+				 var windowHeight = window.innerHeight;
+				 
+				 
+				 //while window is resized little bit
+				 if(screenWidth>windowWidth  || screenHeight>windowHeight){
+					var screenWidth =  windowWidth;
+					var screenHeight = windowHeight;
+				 }
+				
+					$("#ctcOverlayEl").css({'height':screenHeight,'width':screenWidth}); 
+					$("#overlayElContainer").animate({'margin-left':((screenWidth-$('#overlayElContainer').width())/2),
+													  'margin-top':((screenHeight-$('#overlayElContainer').height())/2)},200,function(){
+														 
+														  $('#ctcOverlayElClosebtn').animate({'margin-right':(((screenWidth-$('#overlayElContainer').width())/2)-40)+'px'},200, function(){
+															   
+															   $(this).animate({'margin-top':(((screenHeight-$('#overlayElContainer').height())/2)-40)+'px'},150,function(){
+																   
+																   return;
+															   });
+														   });
+														  
+														  
+													  });	
+				}
+			return false;
+		});
+	
+	//script to deal with loading content to the overlay
+	var screenWidth = window.screen.width;
+	var screenHeight = window.screen.height;
+	
+	
+	//special case when window is not in full screen
+	 var windowWidth = window.innerWidth;
+	 var windowHeight = window.innerHeight;
+	 
+	 
+	 //while window is resized little bit
+	 if(screenWidth>windowWidth  || screenHeight>windowHeight){
+		var screenWidth =  windowWidth;
+		var screenHeight = windowHeight;
+	 }
+	
+	 //function to load content to overlay
+		 function ctcLoadOverlayEl(elHtml){	
+			 
+			//script to deal with loading content to the overlay
+				var screenWidth = window.screen.width;
+				var screenHeight = window.screen.height;
+				
+				
+				//special case when window is not in full screen
+				 var windowWidth = window.innerWidth;
+				 var windowHeight = window.innerHeight;
+				 
+				 
+				 //while window is resized little bit
+				 if(screenWidth>windowWidth  || screenHeight>windowHeight){
+					var screenWidth =  windowWidth;
+					var screenHeight = windowHeight;
+				 }
+			 
+				let overlayContainerEl =''; 
+				overlayContainerEl += '<div  id="ctcOverlayEl" class="ctcOverlayEl">';
+				overlayContainerEl +='<span id="ctcOverlayElClosebtn" title="close" class="ctcOverlayElClosebtn" ></span>';
+				overlayContainerEl += '<div id="overlayElContainer" class="overlayElContainer" style="height:'+elHeight+';width:'+elWidth+'">'+elHtml+' </div>';
+				overlayContainerEl += '</div>';	
+				$("#ctcOverlayEl").remove();
+				$('body').prepend(overlayContainerEl);
+	
+		
+		
+		
+		var marginHor = (screenWidth-$('#overlayElContainer').width())/2;
+		var marginVer = (screenHeight-$('#overlayElContainer').height())/2;
+		
+		
+		$('#overlayElContainer').css({'margin-left':marginHor+'px','margin-top':marginVer+'px'});
+		$("#ctcOverlayEl").animate({width:screenWidth,height:screenHeight,opacity:1},200,function(){
+		   $('#overlayElContainer').animate({opacity:1},400,function(){
+			   $('#ctcOverlayElClosebtn').animate({'margin-right':(marginHor-40)+'px'},200, function(){
+				   
+				   $(this).animate({'margin-top':(marginVer-40)+'px'},150,function(){
+					   
+					   return;
+				   });
+			   });
+		   });
+		});
+	}
+		  return this;
+	}
+
+}(jQuery));
 
 	
 	
