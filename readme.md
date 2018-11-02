@@ -49,11 +49,11 @@ Plugin  lets you display all of the images inside the element , you can apply it
   <dd>*Works eactly like $.ajax() function http://api.jquery.com/jquery.ajax/ (can leave first aparament empty with {} ) </dd>
 
 ######<dd>Content loading  priority</dd>
-<dd>{parameter2} get first priority over first width content loading parameter 1 can be use for setting dimesnion and hideCloseBtn</dd>
-<dd>{parameter1} content fetched from ajaxUrl </dd>
-<dd>{parameter1} content set for modalMessage </dd>
-<dd>{parameter1} content from  iframeUrl </dd>
-<dd>{parameter1} content of element set for  elemSelector </dd>
+<dd>a.{parameter2} gets first priority over first width content loading parameter 1 can be use for setting dimesnion and hideCloseBtn</dd>
+<dd>b.{parameter1} content fetched from ajaxUrl </dd>
+<dd>c.{parameter1} content set for modalMessage </dd>
+<dd>d.{parameter1} content from  iframeUrl </dd>
+<dd>e.{parameter1} content of element set for  elemSelector </dd>
 <dd>Note:precending must not be there for suceeding to work </dd>
 </dl>
 <dl>
