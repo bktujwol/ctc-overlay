@@ -2,7 +2,8 @@
 
 
 
-jQuery plugin to add overlay image viewer to your image gallery and content viewer to you you want to load on modal window jQuery plugin version of overlay functionalities built-in in CT Commerec WordPress Plugin  
+jQuery plugin to add overlay image viewer to your image gallery and content viewer to you you want to load on modal window. 
+jQuery plugin version of overlay functionalities built-in in CT Commerec WordPress Plugin  
 
 # USAGE
 Plugin  lets you display all of the images inside the element , you can apply it to one or multiple galleries
