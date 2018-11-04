@@ -69,4 +69,9 @@ Plugin  lets you display all of the images inside the element , you can apply it
 # License 
 <dd>MIT</dd>
 
+<<<<<<< HEAD
 </dl>
+=======
+</dl>
+
+>>>>>>> b58bdcffed74b5eab5af42f432b33411352689a8
