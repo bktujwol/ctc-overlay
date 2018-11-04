@@ -1,7 +1,7 @@
 {
   "name": "ctc-overlay-jquery",
-  "version": "1.0.21",
-  "description": "jQuery plugin for image gallery overlay",
+  "version": "1.1.2",
+  "description": "jQuery plugin for image gallery overlay and modal content loading",
   "main": "ctc_overlay.jquery.js",
   "repository": {
     "type": "git",
@@ -10,9 +10,12 @@
   "keywords": [
     "jquery-plugin",
     "responsive",
-    "Overlay",
-    "Image gallery",
-    "jQuery"
+    "overlay",
+    "image gallery",
+    "jQuery",
+    "image viewer",
+    "AJAX content loading",
+    "Modal Content"
   ],
   "author": "UjW0L <bktujwol@gmail.com>",
   "license": "MIT",
