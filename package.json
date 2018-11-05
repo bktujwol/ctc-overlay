@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 {
-  "name": "ctc-overlay-jquery",
-  "version": "1.1.2",
+  "name": "ctc-overlay-viewer",
+  "version": "1.0.1",
   "description": "jQuery plugin for image gallery overlay and modal content loading",
   "main": "ctc_overlay.jquery.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bktujwol/ctc-overlay"
+    "url": "git+https://github.com/bktujwol/ctc-overlay.git"
   },
   "keywords": [
     "jquery-plugin",
@@ -22,24 +21,12 @@
   "license": "MIT",
   "dependencies": {
     "jquery": "^3.3.1"
+  },
+  "homepage": "https://bktujwol.github.io/",
+  "bugs": {
+    "url": "https://github.com/bktujwol/ctc-overlay/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
-=======
-{
-  "name": "ctc-overlay-jquery",
-  "version": "1.1.0",
-  "description": "jQuery plugin for image gallery overlay and modal content loading",
-  "main": "ctc_overlay.jquery.js",
-  "repository" :{
-                  "type":"git",
-                  "url":"https://github.com/bktujwol/ctc-overlay"
-                 },
-   "keywords": ["jquery-plugin", "responsive","overlay", "image gallery","jQuery","image viewer","AJAX content loading","Modal Content"],	
-  "author": "UjW0L <bktujwol@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "jquery": "^3.3.1"
-  }
-
-}
->>>>>>> b58bdcffed74b5eab5af42f432b33411352689a8
