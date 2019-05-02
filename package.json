@@ -1,22 +1,32 @@
 {
-  "name": "ctc-overlay-jquery",
-  "version": "1.0.21",
-  "description": "jQuery plugin for image gallery overlay",
+  "name": "ctc-overlay-viewer",
+  "version": "1.0.1",
+  "description": "jQuery plugin for image gallery overlay and modal content loading",
   "main": "ctc_overlay.jquery.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bktujwol/ctc-overlay"
+    "url": "git+https://github.com/bktujwol/ctc-overlay.git"
   },
   "keywords": [
     "jquery-plugin",
     "responsive",
-    "Overlay",
-    "Image gallery",
-    "jQuery"
+    "overlay",
+    "image gallery",
+    "jQuery",
+    "image viewer",
+    "AJAX content loading",
+    "Modal Content"
   ],
   "author": "UjW0L <bktujwol@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "jquery": "^3.3.1"
+  },
+  "homepage": "https://bktujwol.github.io/",
+  "bugs": {
+    "url": "https://github.com/bktujwol/ctc-overlay/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
