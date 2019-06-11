@@ -1,12 +1,43 @@
 {
-  "name": "ctc-overlay-viewer",
-  "version": "1.2.0",
-  "description": "jQuery plugin for image gallery overlay and modal content loading",
-  "main": "ctc_overlay.jquery.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bktujwol/ctc-overlay.git"
+  "_from": "ctc-overlay-viewer",
+  "_id": "ctc-overlay-viewer@1.2.1",
+  "_inBundle": false,
+  "_integrity": "sha512-xV4sF0+jecLdoYUEWKWdo52w0Rng3NfdNKfk+jlQ83jfLnIbBnpgKfdAnejuyZxZlM/Eka10z1x2PzfbCp0KCw==",
+  "_location": "/ctc-overlay-viewer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "ctc-overlay-viewer",
+    "name": "ctc-overlay-viewer",
+    "escapedName": "ctc-overlay-viewer",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ctc-overlay-viewer/-/ctc-overlay-viewer-1.2.1.tgz",
+  "_shasum": "8873477b59f9ae5525e1337b1313a493904db01b",
+  "_spec": "ctc-overlay-viewer",
+  "_where": "C:\\Users\\ujwol\\Documents",
+  "author": {
+    "name": "UjW0L",
+    "email": "bktujwol@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/bktujwol/ctc-overlay/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jquery": "^3.4.0"
+  },
+  "deprecated": false,
+  "description": "jQuery plugin for image gallery overlay and modal content loading",
+  "devDependencies": {},
+  "homepage": "https://bktujwol.github.io/",
   "keywords": [
     "jquery-plugin",
     "responsive",
@@ -17,17 +48,15 @@
     "AJAX content loading",
     "Modal Content"
   ],
-  "author": "UjW0L <bktujwol@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "jquery": "^3.4.0"
-  },
-  "homepage": "https://bktujwol.github.io/",
-  "bugs": {
-    "url": "https://github.com/bktujwol/ctc-overlay/issues"
+  "main": "ctc_overlay.jquery.js",
+  "name": "ctc-overlay-viewer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bktujwol/ctc-overlay.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {}
+  "version": "1.2.2"
 }

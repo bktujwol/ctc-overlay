@@ -1,95 +1,107 @@
-# CTC Overlay Viewer
+﻿<h1 align="center">Welcome to ctc-overlay-viewer 👋</h1>
+<p>
+  <img src="https://img.shields.io/badge/version-1.2.2-blue.svg?cacheSeconds=2592000" />
+  <a href="https://ujw0l.github.io/ctc-overlay-viewer">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/ujw0l/ctc-overlay/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/ujw0l/ctc-overlay/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+  </a>
+</p>
 
-jQuery plugin to add overlay image viewer to your image gallery and content viewer to you you want to load on modal window. 
-jQuery plugin version of overlay functionalities built-in in CT Commerec WordPress Plugin  
+> jQuery plugin for image gallery overlay and modal content loading
 
-# USAGE
-Plugin  lets you display all of the images inside the element , you can apply it to one or multiple galleries
-<dl>
-<dt>Including CTC Overlay jQuery plugin<dt> 
-<dt>Below are some of the most common ways to include ctc-overlay-jquery</dd> 
+## Install
 
-## 1.Script tag
+```sh
+npm i ctc-overlay-viewer
+```
 
+## Script Tag
 
-######<dt> Download files </dt>
+```sh
+Download Files
+1. ctc_overlay.jquery.js,
+2. ctc_overlay_style.css
 
-<dd>1. ctc_overlay.jquery.js,</dd>
-<dd>2. ctc_overlay_style.css</dd>
+Include files
+1. Include jQuery :- https://code.jquery.com/jquery-3.3.1.min.js,
+2. IncludeCTC Overlay(file) :- ctc_overlay.jquery.js,
+3. Include CTC Overlay stylesheet(file) :- ctc_overlay_style.css
 
-  
-<dd>Include files</dd>
+```
 
- <dd>1. Include jQuery :- https://code.jquery.com/jquery-3.3.1.min.js,</dd>
- <dd>2. IncludeCTC Overlay(file) :- ctc_overlay.jquery.js,</dd>
- <dd>3. Include CTC Overlay stylesheet(file) :-  ctc_overlay_style.css</dd>
+## Plugin Options
 
-</dl>
-<dl>
+```sh
+Overlay image viewer
 
-## 2.Node
-<dd>To include CTC overlay in Node, first install with npm</dd>
+	$('selector1,selector2').ctcOverlay();
 
-#### <dd> npm install ctc-overlay-jquery</dd>
-
-
-</dl>
-<dl>
+Note: Apply ctcOverlay to as many gallery as you like (includes all images inside element)
 
 
-### Plugin Options :
-#### <dt> Overlay image viewer </dt>
-		$('selector1,selector2').ctcOverlay();
-	
-  <dd>Note: Apply ctcOverlay to as many gallery as you like (includes all images inside element)</dd>
+Overlay content viewer
+
+	$.ctcOverlayEl(parameter1, parameter2);
+
+Content Viewer options
+
+A.Parameter 1 options
+
+       format: javascript object
+
+1.elemHeight:- 'container height':- content div height in px do not use % or auto - optional
+2.elemWidth:-'container width':- content div width in px, do not use % or auto - optional
+3.ajaxUrl:- 'AJAX url':- url to make AJAX call - required for AJAX request
+4.ajaxData:= 'ajax data' :- data to send to server' - jQuery AJAX request format
+5.ajaxMethod:- 'request method':- method you wish to use use for AJAX request default GET
+6.elemSelector:-'jQuery element selector':- jQuery element selector if getting content of element not making AJAX request
+7.modalMessage:- 'some message':-string you wish to load on modal window with OK button
+8.iframeUrl:- 'url of iframe' :- url you wish to iframe inside modal window
+9.hideCloseBtn:- 'no' :-if set 'NO' user won't have option to close overlay, 'YES' if left empty
 
 
-#### <dt>Overlay content viewer </dt> 
- 		$.ctcOverlayEl(parameter1, parameter2);
+B.Parameter 2 options
 
-###  Content Viewer options
+   format: javascript object - optional(to do more with AJAX)
 
-#### <dt>A.Parameter 1 options</dt>
-           format: javascript object
- <dt>1.elemHeight: 'container height':-</dt> 
-	<dd>content div height in px do not use % or auto - optional </dd>
- <dt>2.elemWidth:'container width':-</dt>
-	<dd> content div width in px, do not use % or auto - optional</dd>
- <dt>3.ajaxUrl: 'AJAX url':-</dt>
-	<dd> url to make AJAX call - required for AJAX request</dd>
- <dt>4.ajaxData: 'ajax data' :-</dt>
-	<dd>data to send to server' - jQuery AJAX request format </dd>
- <dt>5.ajaxMethod:'request method':-</dt>
-<dd> method you wish to use use for AJAX request default GET</dd>
- <dt>6.elemSelector:'jQuery element selector':-</dt>
-	<dd> jQuery element selector if getting content of element not making AJAX request</dd>
- <dt>7.modalMessage:'some message':-</dt>
-<dd> string you wish to load on modal window with OK button</dd>
- <dt>8.iframeUrl:'url of iframe' :-</dt>
-<dd> url you wish to iframe inside modal window</dd>
-<dt>9.hideCloseBtn:'no' :-</dt>
-<dd> if set 'NO' user won't have option to close overlay, 'YES' if left empty </dd>
+*Works eactly like function $.ajax() :- See http://api.jquery.com/jquery.ajax/
 
-#### <dt>B.Parameter 2 options<dt>
-	   format: javascript object - optional(to do more with AJAX)
-  <dd> *Works eactly like function $.ajax()  :- See http://api.jquery.com/jquery.ajax/<dd>
-   <dd> Note: leave parameter1 as empty var or object unless setting dimesnion </dd>
+Note: leave parameter1 as empty var or object unless setting dimesnion Content loading priority
 
-###### <dt>Content loading  priority</dt>
- <dt>a.{parameter2}</dt>
-   <dd>gets first priority over first width content loading parameter 1 can be use for setting dimesnion and hideCloseBtn</dd>
- <dt>b.{parameter1}</dt>
-<dd> content fetched from ajaxUrl </dd>
-<dt>c.{parameter1}</dt>
-<dd>  content set for modalMessage </dd>
-<dt>d.{parameter1}</dt>
-<dd>  content from  iframeUrl </dd>
-<dt>e.{parameter1}</dt>
-<dd>content of element set for  elemSelector </dd>
+a.{parameter2} gets first priority over first width content loading parameter 1 can be use for setting dimesnion and hideCloseBtn
+b.{parameter1} content fetched from ajaxUrl
+c.{parameter1} content set for modalMessage
+d.{parameter1} ontent from iframeUrl
+e.{parameter1} content of element set for elemSelector
 
-<dt>Note:precending must not be there for suceeding to work </dt>
-</dl>
+Note:precending must not be there for suceeding to work
+```
 
-# License 
-<dd>MIT</dd>
+## Contributing
 
+Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/ujw0l/ctc-overlay/issues) if you want to contribute.
+
+## Author
+
+👤 **ujw0l**
+
+* Twitter 👉 [@bastakotiujwol](https://twitter.com/bastakotiujwol)
+* Github 👉 [@ujw0l](https://github.com/ujw0l)
+
+## Show your support
+
+Please ⭐️ this repository if you like it.
+
+## License
+
+Copyright © 2019 [ujw0l](https://github.com/ujw0l).
+
+📜 This project is [MIT](https://github.com/ujw0l/ctc-overlay/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
