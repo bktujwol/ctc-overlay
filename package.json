@@ -37,16 +37,16 @@
   "deprecated": false,
   "description": "jQuery plugin for image gallery overlay and modal content loading",
   "devDependencies": {},
-  "homepage": "https://bktujwol.github.io/",
+  "homepage": "https://ujw0l.github.io/ctc-overlay-viewer/",
   "keywords": [
     "jquery-plugin",
     "responsive",
     "overlay",
-    "image gallery",
+    "image-gallery",
     "jQuery",
     "image viewer",
-    "AJAX content loading",
-    "Modal Content"
+    "AJAX-content-loading",
+    "Modal-Content"
   ],
   "license": "MIT",
   "main": "ctc_overlay.jquery.js",
@@ -58,5 +58,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.2.2"
+  "version": "1.2.4"
 }
