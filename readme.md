@@ -1,6 +1,6 @@
 ﻿<h1 align="center">Welcome to ctc-overlay-viewer 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-1.2.3-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.2.4-blue.svg?cacheSeconds=2592000" />
   <a href="https://ujw0l.github.io/ctc-overlay-viewer">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
